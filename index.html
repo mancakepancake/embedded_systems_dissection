@@ -1,12 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index.html</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dissection Report</title>
+  <style>
+    :root {
+      --bg-color: #121212;
+      --accent-color: #ff6600;
+      --text-color: #f0f0f0;
+      --margin: 2rem;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--accent-color);
+      color: #000;
+      padding: 1rem var(--margin);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem var(--margin);
+      background-color: #1e1e1e;
+    }
+
+    nav a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      padding: var(--margin);
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <p>This ia my first page.</p>
+  <header>
+    <h1>Electronics Dissection Report</h1>
+  </header>
+  <nav>
+    <a href="#" onclick="showPage('intro')">1. Introduction</a>
+    <a href="#" onclick="showPage('market')">2. Product Market Info</a>
+    <a href="#" onclick="showPage('photos')">3. Photo Journal</a>
+    <a href="#" onclick="showPage('operation')">4. Product Operation</a>
+    <a href="#" onclick="showPage('analysis')">5. Product Analysis</a>
+    <a href="#" onclick="showPage('reassembly')">6. Reassembly</a>
+    <a href="#" onclick="showPage('lessons')">7. Lessons Learned</a>
+  </nav>
+  <main>
+    <section id="intro" class="active">
+      <h2>1. Introduction</h2>
+      <p>[Personal introduction]</p>
+      <p>[Background and motivation for choosing the product]</p>
+    </section>
+    <section id="market">
+      <h2>2. Product Market and Retail Information</h2>
+      <p>[Product history]</p>
+      <p>[MSRP and street prices]</p>
+      <p>[Retail outlets]</p>
+      <p>[Rebranded/OEM versions]</p>
+    </section>
+    <section id="photos">
+      <h2>3. Dissection Photo Journal</h2>
+      <p>[Photo journal with captions]</p>
+    </section>
+    <section id="operation">
+      <h2>4. Product Operation</h2>
+      <p>[Human-machine interfaces]</p>
+      <p>[Usage timing diagrams]</p>
+    </section>
+    <section id="analysis">
+      <h2>5. Product Analysis</h2>
+      <p>[High-level product design diagram]</p>
+      <p>[Block diagrams and design analysis]</p>
+      <p>[Operational values table]</p>
+      <p>[Complete schematics]</p>
+      <p>[Electrical and non-electrical BoMs]</p>
+    </section>
+    <section id="reassembly">
+      <h2>6. Product Reassembly</h2>
+      <p>[Reassembly notes and functionality test]</p>
+    </section>
+    <section id="lessons">
+      <h2>7. Lessons Learned</h2>
+      <p>[Final reflections and takeaways]</p>
+    </section>
+  </main>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
