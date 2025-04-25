@@ -448,4 +448,34 @@
     }
   </script>
 </body>
+<script>
+  // Get the lightbox element
+  const lightbox = document.querySelector('.lightbox');
+
+  // Get all the lightbox links (anchor tags)
+  const lightboxLinks = document.querySelectorAll('[data-lightbox="photo-journal"]');
+
+  // Function to close the lightbox
+  function closeLightbox(event) {
+    if (event.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  }
+
+  // Add click event to lightbox links to open the lightbox
+  lightboxLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      const lightboxImage = document.createElement('img');
+      lightboxImage.src = link.href;
+      lightboxImage.alt = link.getAttribute('data-title');
+      lightbox.innerHTML = ''; // Clear existing content
+      lightbox.appendChild(lightboxImage);
+      lightbox.style.display = 'flex'; // Show lightbox
+    });
+  });
+
+  // Add event listener to close lightbox when clicking outside the image
+  lightbox.addEventListener('click', closeLightbox);
+</script>
 </html>
