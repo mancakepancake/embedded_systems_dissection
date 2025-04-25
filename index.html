@@ -1,4 +1,4 @@
-o<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,7 +8,7 @@ o<!DOCTYPE html>
   <style>
     :root {
       --bg-color: #121212;
-      --accent-color: #4169e1; /* royal blue */
+      --accent-color: #4169e1;
       --text-color: #f0f0f0;
       --side-margin: 2.25in;
     }
@@ -43,6 +43,85 @@ o<!DOCTYPE html>
       font-weight: bold;
     }
 
+    main {
+      padding-left: var(--side-margin);
+      padding-right: var(--side-margin);
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+    }
+
+    .photo-item {
+      background-color: #1e1e1e;
+      padding: 0.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(65, 105, 225, 0.3);
+      width: 100%;
+      max-width: 240px;
+      cursor: pointer;
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .caption {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      display: none;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Electronics Dissection Report</h1>
+  </header>
+  <nav>
+    <a href="#" onclick="showPage('intro')">1. Introduction</a>
+    <a href="#" onclick="showPage('market')">2. Product Market Info</a>
+    <a href="#" onclick="showPage('photos')">3. Photo Journal</a>
+    <a href="#" onclick="showPage('operation')">4. Product Operation</a>
+    <a href="#" onclick="showPage('analysis')">5. Product Analysis</a>
+    <a href="#" onclick="showPage('reassembly')">6. Reassembly</a>
+    <a href="#" onclick="showPage('lessons')">7. Lessons Learned</a>
+  </nav>
     main {
       padding-left: var(--side-margin);
       padding-right: var(--side-margin);
@@ -290,13 +369,28 @@ o<!DOCTYPE html>
       <p>[Final reflections and takeaways]</p>
     </section>
   </main>
-
+  <div class="lightbox" id="lightbox" onclick="hideLightbox()">
+    <img id="lightbox-img" src="" alt="Enlarged Photo" />
+  </div>
   <script>
     function showPage(id) {
       document.querySelectorAll('section').forEach(section => {
         section.classList.remove('active');
       });
       document.getElementById(id).classList.add('active');
+    }
+
+    document.querySelectorAll('.photo-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    function hideLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
     }
   </script>
 </body>
