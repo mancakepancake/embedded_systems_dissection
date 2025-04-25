@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dissection Report</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
   <style>
     :root {
       --bg-color: #121212;
@@ -89,25 +90,7 @@
       color: #ccc;
     }
 
-    .lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      display: none;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 8px;
-    }
+    /* Removed lightbox styling for product analysis */
   </style>
 </head>
 <body>
@@ -421,22 +404,8 @@
     </section>
   </main>
 </body>
-  <script>
-  function showPage(pageId) {
-    // Get all sections
-    const sections = document.querySelectorAll('section');
-    
-    // Hide all sections
-    sections.forEach(section => {
-      section.classList.remove('active');
-    });
-    
-    // Show the selected page
-    const activeSection = document.getElementById(pageId);
-    activeSection.classList.add('active');
-  }
-</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
   <script>
     function showPage(id) {
       document.querySelectorAll('section').forEach(section => {
@@ -445,5 +414,5 @@
       document.getElementById(id).classList.add('active');
     }
   </script>
-
+</body>
 </html>
