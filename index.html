@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dissection Report</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-<style>
+  <style>
     :root {
       --bg-color: #121212;
       --accent-color: #4169e1;
@@ -65,24 +65,22 @@
       justify-items: center;
     }
 
-    /* For Large Images (Design Diagram, Block Diagram, Schematic) */
     .large-photo-item img {
       width: 100%;
-      max-width: 1000px; /* Max width for large images */
+      max-width: 1000px;
       height: auto;
       display: block;
-      margin: 1rem auto; /* Center the images */
-      border-radius: 10px; /* Optional, for rounded corners */
+      margin: 1rem auto;
+      border-radius: 10px;
     }
 
-    /* For Small Images (Photo Journal) */
     .photo-item img {
       width: 100%;
-      max-width: 500px; /* Max width for smaller images */
+      max-width: 500px;
       height: auto;
       display: block;
-      margin: 1rem auto; /* Center the images */
-      border-radius: 10px; /* Optional, for rounded corners */
+      margin: 1rem auto;
+      border-radius: 10px;
     }
 
     .caption {
@@ -91,7 +89,6 @@
       color: #ccc;
     }
 
-    /* Lightbox styles */
     .lightbox {
       position: fixed;
       top: 0;
@@ -111,9 +108,9 @@
       max-height: 90%;
       border-radius: 8px;
     }
-</style>
-
+  </style>
 </head>
+<body>
   <header>
     <h1>Electronics Dissection Report</h1>
   </header>
@@ -126,7 +123,7 @@
     <a href="#" onclick="showPage('reassembly')">6. Reassembly</a>
     <a href="#" onclick="showPage('lessons')">7. Lessons Learned</a>
   </nav>
-  <main>
+<main>
     <section id="intro" class="active">
       <h2>1. Introduction</h2>
       <p>[Personal introduction]</p>
@@ -423,9 +420,12 @@
       <p>[Final reflections and takeaways]</p>
     </section>
   </main>
+
+  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" onclick="hideLightbox()">
     <img id="lightbox-img" src="" alt="Enlarged Photo" />
   </div>
+
   <script>
     function showPage(id) {
       document.querySelectorAll('section').forEach(section => {
@@ -434,11 +434,14 @@
       document.getElementById(id).classList.add('active');
     }
 
-    document.querySelectorAll('.photo-item img').forEach(img => {
-      img.addEventListener('click', () => {
+    // Lightbox functionality
+    document.querySelectorAll('.photo-item a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const imgSrc = link.getAttribute('href');
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
-        lightboxImg.src = img.src;
+        lightboxImg.src = imgSrc;
         lightbox.style.display = 'flex';
       });
     });
@@ -448,34 +451,4 @@
     }
   </script>
 </body>
-<script>
-  // Get the lightbox element
-  const lightbox = document.querySelector('.lightbox');
-
-  // Get all the lightbox links (anchor tags)
-  const lightboxLinks = document.querySelectorAll('[data-lightbox="photo-journal"]');
-
-  // Function to close the lightbox
-  function closeLightbox(event) {
-    if (event.target === lightbox) {
-      lightbox.style.display = 'none';
-    }
-  }
-
-  // Add click event to lightbox links to open the lightbox
-  lightboxLinks.forEach(link => {
-    link.addEventListener('click', function(event) {
-      event.preventDefault();
-      const lightboxImage = document.createElement('img');
-      lightboxImage.src = link.href;
-      lightboxImage.alt = link.getAttribute('data-title');
-      lightbox.innerHTML = ''; // Clear existing content
-      lightbox.appendChild(lightboxImage);
-      lightbox.style.display = 'flex'; // Show lightbox
-    });
-  });
-
-  // Add event listener to close lightbox when clicking outside the image
-  lightbox.addEventListener('click', closeLightbox);
-</script>
 </html>
