@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dissection Report</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-  <style>
+<style>
     :root {
       --bg-color: #121212;
       --accent-color: #4169e1;
@@ -65,20 +65,24 @@
       justify-items: center;
     }
 
-    .photo-item {
-      background-color: #1e1e1e;
-      padding: 0.5rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(65, 105, 225, 0.3);
+    /* For Large Images (Design Diagram, Block Diagram, Schematic) */
+    .large-photo-item img {
       width: 100%;
-      max-width: 240px;
-      cursor: pointer;
+      max-width: 1000px; /* Max width for large images */
+      height: auto;
+      display: block;
+      margin: 1rem auto; /* Center the images */
+      border-radius: 10px; /* Optional, for rounded corners */
     }
 
+    /* For Small Images (Photo Journal) */
     .photo-item img {
       width: 100%;
+      max-width: 500px; /* Max width for smaller images */
       height: auto;
-      border-radius: 4px;
+      display: block;
+      margin: 1rem auto; /* Center the images */
+      border-radius: 10px; /* Optional, for rounded corners */
     }
 
     .caption {
@@ -107,7 +111,8 @@
       max-height: 90%;
       border-radius: 8px;
     }
-  </style>
+</style>
+
 </head>
   <header>
     <h1>Electronics Dissection Report</h1>
@@ -299,13 +304,13 @@
 
   <!-- Schematic -->
   <h3>Complete Schematic</h3>
-  <div class="photo-item">
+  <div class="large-photo-item">
     <a href="product_analysis_images/philips_norelco_schematic.jpg" data-lightbox="photo-journal" data-title="Full Circuit Schematic">
       <img src="product_analysis_images/philips_norelco_schematic.jpg" alt="Schematic">
     </a>
     <div class="caption">Complete electrical schematic diagram of the PCB</div>
   </div>
-    <div class="photo-item">
+    <div class="large-photo-item">
     <a href="/schematic.jpg" data-lightbox="photo-journal" data-title="Full Circuit Schematic">
       <img src="photos/schematic.jpg" alt="Schematic">
     </a>
@@ -328,15 +333,6 @@
       <img src="photos/block_diagram.jpg" alt="Block Diagram">
     </a>
     <div class="caption">Functional block diagram showing subsystem relationships</div>
-  </div>
-
-  <!-- Schematic -->
-  <h3>Complete Schematic</h3>
-  <div class="photo-item">
-    <a href="photos/schematic.jpg" data-lightbox="photo-journal" data-title="Full Circuit Schematic">
-      <img src="photos/schematic.jpg" alt="Schematic">
-    </a>
-    <div class="caption">Complete electrical schematic diagram of the PCB</div>
   </div>
 
   <!-- Operating Values Table -->
