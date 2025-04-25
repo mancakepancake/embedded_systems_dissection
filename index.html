@@ -420,35 +420,5 @@
       <p>[Final reflections and takeaways]</p>
     </section>
   </main>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" onclick="hideLightbox()">
-    <img id="lightbox-img" src="" alt="Enlarged Photo" />
-  </div>
-
-  <script>
-    function showPage(id) {
-      document.querySelectorAll('section').forEach(section => {
-        section.classList.remove('active');
-      });
-      document.getElementById(id).classList.add('active');
-    }
-
-    // Lightbox functionality
-    document.querySelectorAll('.photo-item a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const imgSrc = link.getAttribute('href');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        lightboxImg.src = imgSrc;
-        lightbox.style.display = 'flex';
-      });
-    });
-
-    function hideLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
-    }
-  </script>
 </body>
 </html>
