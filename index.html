@@ -355,9 +355,31 @@
       </div>
     </section>
     <section id="operation">
-      <h2>4. Product Operation</h2>
-      <p>[Human-machine interfaces]</p>
-      <p>[Usage timing diagrams]</p>
+<h2>4. Product Operation</h2>
+
+<p>Human-machine interfaces</p>
+<div class="photo-grid">
+  <div class="large-photo-item">
+    <img src="product_analysis_image/HMI_image.jpg" alt="Charged">
+    <div class="caption">When the electric shaver is charging the device's LED will blink green until it is fully charged, where it will turn to a solid green.  While the device is in use the LED will stay a solid green until it becomes low on battery</div>
+  </div>
+  <div class="large-photo-item">
+    <img src="product_analysis_image/HMI_image_red.jpg" alt="Not Charged">
+    <div class="caption">The electric shaver changed the LED to red when the device is not charged.  This typically indicates the device has less than two minutes of battery life</div>
+  </div>
+</div>
+
+<p>Usage timing diagrams</p>
+<div class="photo-grid">
+  <div class="large-photo-item">
+    <img src="product_analysis_image/IMG_7398.jpg" alt="Running oscilliscope">
+    <div class="caption">This is the timing diagram for the electric shaver when it is powered on and the motor is running.  The varying amplitudes in the wave are consistent with the functions of motors, as it needs to be energized.  Noise can be seen here as the motor is being tested apart from the noise reduction MOSFET circuitry.</div>
+  </div>
+  <div class="large-photo-item">
+    <img src="product_analysis_image/IMG_7414.jpg" alt="Charging Oscilloscope">
+    <div class="caption">This is the timing diagram for the electric shaver when it is being charged.  There is significantly less noise as the charging element of the circuit implements many MOSFETs in order to reduce noise and limit current values for safe charging and use.</div>
+  </div>
+</div>
     </section>
 <section id="analysis">
   <h2>5. Product Analysis</h2>
